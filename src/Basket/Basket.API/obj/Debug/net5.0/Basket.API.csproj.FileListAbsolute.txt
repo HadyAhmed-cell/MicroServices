@@ -30,3 +30,13 @@ C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\obj\Debug\net
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\obj\Debug\net5.0\Basket.API.pdb
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\obj\Debug\net5.0\Basket.API.genruntimeconfig.cache
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\RabbitMQ.Client.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\System.Threading.Channels.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\EventBusRabbitMQ.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\EventBusRabbitMQ.pdb
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
