@@ -1,0 +1,12 @@
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\bin\Debug\net5.0\Ordering.Core.deps.json
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\bin\Debug\net5.0\Ordering.Core.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\bin\Debug\net5.0\ref\Ordering.Core.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\bin\Debug\net5.0\Ordering.Core.pdb
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\obj\Debug\net5.0\Ordering.Core.csproj.AssemblyReference.cache
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\obj\Debug\net5.0\Ordering.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\obj\Debug\net5.0\Ordering.Core.AssemblyInfoInputs.cache
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\obj\Debug\net5.0\Ordering.Core.AssemblyInfo.cs
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\obj\Debug\net5.0\Ordering.Core.csproj.CoreCompileInputs.cache
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\obj\Debug\net5.0\Ordering.Core.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\obj\Debug\net5.0\ref\Ordering.Core.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Core\obj\Debug\net5.0\Ordering.Core.pdb

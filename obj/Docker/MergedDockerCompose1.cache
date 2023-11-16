@@ -4,91 +4,203 @@ services:
     build:
       context: C:\Users\HadyA\source\repos\MicroServicesApp
       dockerfile: src/Basket/Basket.API/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Basket.API
+      target: base
+    container_name: Basket.API
     depends_on:
       basketdb:
         condition: service_started
         required: true
+      rabbitmq:
+        condition: service_started
+        required: true
+    entrypoint:
+      - tail
+      - -f
+      - /dev/null
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
       ConnectionStrings:Redis: basketdb:6379
-    image: basketapi
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      EventBus:HostName: rabbitmq
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: basketapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  ""'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
     networks:
       default: null
     ports:
-    - mode: ingress
-      target: 80
-      published: "8001"
-      protocol: tcp
+      - mode: ingress
+        target: 80
+        published: "8001"
+        protocol: tcp
+    tty: true
     volumes:
-    - type: bind
-      source: /.microsoft/usersecrets/
-      target: /root/.microsoft/usersecrets
-      bind:
-        create_host_path: true
-    - type: bind
-      source: /.aspnet/https
-      target: /root/.aspnet/https
-      bind:
-        create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API
+        target: /app
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\vsdbg\vs2017u5
+        target: /remote_debugger
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\AppData\Roaming/ASP.NET/Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\AppData\Roaming/Microsoft/UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages
+        target: /root/.nuget/fallbackpackages
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\.nuget\packages\
+        target: /root/.nuget/packages
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\source\repos\MicroServicesApp
+        target: /src
+        bind:
+          create_host_path: true
   basketdb:
     container_name: basketdb
     image: redis
     networks:
       default: null
     ports:
-    - mode: ingress
-      target: 6379
-      published: "6379"
-      protocol: tcp
+      - mode: ingress
+        target: 6379
+        published: "6379"
+        protocol: tcp
     restart: always
   catalog.api:
     build:
       context: C:\Users\HadyA\source\repos\MicroServicesApp
       dockerfile: src/Catalog/Catalog.API/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Catalog.API
+      target: base
     container_name: catalogapi
     depends_on:
       catalogdb:
         condition: service_started
         required: true
+    entrypoint:
+      - tail
+      - -f
+      - /dev/null
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
       CatalogDatabaseSettings:ConnectionString: mongodb://catalogdb:27017
-    image: catalogapi
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: catalogapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/net5.0/Catalog.API.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
     networks:
       default: null
     ports:
-    - mode: ingress
-      target: 80
-      published: "8000"
-      protocol: tcp
+      - mode: ingress
+        target: 80
+        published: "8000"
+        protocol: tcp
+    tty: true
     volumes:
-    - type: bind
-      source: /.microsoft/usersecrets/
-      target: /root/.microsoft/usersecrets
-      bind:
-        create_host_path: true
-    - type: bind
-      source: /.aspnet/https
-      target: /root/.aspnet/https
-      bind:
-        create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\source\repos\MicroServicesApp\src\Catalog\Catalog.API
+        target: /app
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\vsdbg\vs2017u5
+        target: /remote_debugger
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\AppData\Roaming/ASP.NET/Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\AppData\Roaming/Microsoft/UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages
+        target: /root/.nuget/fallbackpackages
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\.nuget\packages\
+        target: /root/.nuget/packages
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\HadyA\source\repos\MicroServicesApp
+        target: /src
+        bind:
+          create_host_path: true
   catalogdb:
     container_name: catalogdb
     image: mongo
     networks:
       default: null
     ports:
-    - mode: ingress
-      target: 27017
-      published: "27017"
-      protocol: tcp
+      - mode: ingress
+        target: 27017
+        published: "27017"
+        protocol: tcp
     restart: always
     volumes:
-    - type: bind
-      source: /site
-      target: /data/db
-      bind:
-        create_host_path: true
+      - type: bind
+        source: /site
+        target: /data/db
+        bind:
+          create_host_path: true
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5672
+        published: "5672"
+        protocol: tcp
+      - mode: ingress
+        target: 15672
+        published: "15672"
+        protocol: tcp
+    restart: always
 networks:
   default:
     name: dockercompose5130498830204417988_default
