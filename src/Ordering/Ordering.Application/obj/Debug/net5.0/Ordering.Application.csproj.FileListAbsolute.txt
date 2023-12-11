@@ -10,3 +10,8 @@ C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\o
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\obj\Debug\net5.0\Ordering.Application.dll
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\obj\Debug\net5.0\ref\Ordering.Application.dll
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\obj\Debug\net5.0\Ordering.Application.pdb
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\bin\Debug\net5.0\Ordering.Core.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\bin\Debug\net5.0\Ordering.Infrastructure.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\bin\Debug\net5.0\Ordering.Core.pdb
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\bin\Debug\net5.0\Ordering.Infrastructure.pdb
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Application\obj\Debug\net5.0\Ordering.Application.csproj.CopyComplete
