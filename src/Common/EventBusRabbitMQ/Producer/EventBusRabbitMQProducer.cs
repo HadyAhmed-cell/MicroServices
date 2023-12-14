@@ -2,10 +2,7 @@
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace EventBusRabbitMQ.Producer
 {
@@ -18,7 +15,7 @@ namespace EventBusRabbitMQ.Producer
             _connection = connection;
         }
 
-        public void PublishBasketCheckout(string queueName , BasketCheckoutEvent publishModel)
+        public void PublishBasketCheckout(string queueName, BasketCheckoutEvent publishModel)
         {
             using ( var channel = _connection.CreateModel() )
             {

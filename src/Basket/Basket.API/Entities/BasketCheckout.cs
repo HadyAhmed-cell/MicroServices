@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Basket.API.Entities
+﻿namespace Basket.API.Entities
 {
     public class BasketCheckout
     {
@@ -12,6 +7,7 @@ namespace Basket.API.Entities
 
         // BillingAddress
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string AddressLine { get; set; }
@@ -21,6 +17,7 @@ namespace Basket.API.Entities
 
         // Payment
         public string CardName { get; set; }
+
         public string CardNumber { get; set; }
         public string Expiration { get; set; }
         public string CVV { get; set; }

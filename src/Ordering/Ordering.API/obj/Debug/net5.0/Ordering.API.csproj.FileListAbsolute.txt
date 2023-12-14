@@ -76,3 +76,7 @@ C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.API\bin\Debug
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.API\bin\Debug\net5.0\Ordering.Application.dll
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.API\bin\Debug\net5.0\Ordering.Application.pdb
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.API\bin\Debug\net5.0\RabbitMQ.Client.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.API\bin\Debug\net5.0\System.Threading.Channels.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.API\bin\Debug\net5.0\EventBusRabbitMQ.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.API\bin\Debug\net5.0\EventBusRabbitMQ.pdb

@@ -3,10 +3,12 @@ using System;
 
 namespace EventBusRabbitMQ
 {
-    public interface IRabbitMQConnection :IDisposable
+    public interface IRabbitMQConnection : IDisposable
     {
         bool IsConnected { get; }
+
         bool TryConnect();
+
         IModel CreateModel();
     }
 }

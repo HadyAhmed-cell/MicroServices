@@ -1,0 +1,163 @@
+name: dockercompose5130498830204417988
+services:
+  basket.api:
+    build:
+      context: C:\Users\HadyA\source\repos\MicroServicesApp
+      dockerfile: src/Basket/Basket.API/Dockerfile
+    container_name: basketapi
+    depends_on:
+      basketdb:
+        condition: service_started
+        required: true
+      rabbitmq:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings:Redis: basketdb:6379
+      EventBus:HostName: rabbitmq
+    image: basketapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8001"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /.microsoft/usersecrets/
+        target: /root/.microsoft/usersecrets
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /.aspnet/https
+        target: /root/.aspnet/https
+        bind:
+          create_host_path: true
+  basketdb:
+    container_name: basketdb
+    image: redis
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 6379
+        published: "6379"
+        protocol: tcp
+    restart: always
+  catalog.api:
+    build:
+      context: C:\Users\HadyA\source\repos\MicroServicesApp
+      dockerfile: src/Catalog/Catalog.API/Dockerfile
+    container_name: catalogapi
+    depends_on:
+      catalogdb:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      CatalogDatabaseSettings:ConnectionString: mongodb://catalogdb:27017
+    image: catalogapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8000"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /.microsoft/usersecrets/
+        target: /root/.microsoft/usersecrets
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /.aspnet/https
+        target: /root/.aspnet/https
+        bind:
+          create_host_path: true
+  catalogdb:
+    container_name: catalogdb
+    image: mongo
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 27017
+        published: "27017"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: bind
+        source: /site
+        target: /data/db
+        bind:
+          create_host_path: true
+  orderdb:
+    container_name: orderdb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: ExpectoPatronum@128
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1433"
+        protocol: tcp
+  ordering.api:
+    build:
+      context: C:\Users\HadyA\source\repos\MicroServicesApp
+      dockerfile: src/Ordering/Ordering.API/Dockerfile
+    container_name: orderingapi
+    depends_on:
+      basketdb:
+        condition: service_started
+        required: true
+      rabbitmq:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings:OrderConnection: Server=orderdb;Database=OrderDb;User Id =sa;Password=ExpectoPatronum@128
+      EventBus:HostName: rabbitmq
+    image: orderingapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8002"
+        protocol: tcp
+    restart: on-failure
+    volumes:
+      - type: bind
+        source: /.microsoft/usersecrets/
+        target: /root/.microsoft/usersecrets
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /.aspnet/https
+        target: /root/.aspnet/https
+        bind:
+          create_host_path: true
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5672
+        published: "5672"
+        protocol: tcp
+      - mode: ingress
+        target: 15672
+        published: "15672"
+        protocol: tcp
+    restart: always
+networks:
+  default:
+    name: dockercompose5130498830204417988_default

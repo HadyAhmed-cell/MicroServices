@@ -4,7 +4,7 @@ using EventBusRabbitMQ.Events;
 
 namespace Basket.API.Mapping
 {
-    public class BasketMapping:Profile
+    public class BasketMapping : Profile
     {
         public BasketMapping()
         {

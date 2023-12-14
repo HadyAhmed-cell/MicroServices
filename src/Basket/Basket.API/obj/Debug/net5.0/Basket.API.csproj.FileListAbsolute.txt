@@ -40,3 +40,4 @@ C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Basket\Basket.API\bin\Debug\net5.0\libman.json

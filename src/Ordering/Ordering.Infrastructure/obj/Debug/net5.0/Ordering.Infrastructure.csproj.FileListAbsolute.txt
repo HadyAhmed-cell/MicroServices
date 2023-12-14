@@ -15,3 +15,4 @@ C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Infrastructur
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Infrastructure\obj\Debug\net5.0\ref\Ordering.Infrastructure.dll
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Infrastructure\obj\Debug\net5.0\Ordering.Infrastructure.pdb
 C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Infrastructure\obj\Debug\net5.0\Ordering.Infrastructure.genruntimeconfig.cache
+C:\Users\HadyA\source\repos\MicroServicesApp\src\Ordering\Ordering.Infrastructure\obj\Debug\net5.0\Ordering.Infrastructure.csproj.CopyComplete

@@ -19,34 +19,33 @@ namespace Basket.API.Controllers
         private readonly IMapper _mapper;
         private readonly EventBusRabbitMQProducer _producer;
 
-        public BasketController(IBasketRepository repository , IMapper mapper , EventBusRabbitMQProducer producer)
+        public BasketController(IBasketRepository repository, IMapper mapper, EventBusRabbitMQProducer producer)
         {
             _repository = repository;
             _mapper = mapper;
             _producer = producer;
         }
+
         [HttpGet]
-        [ProducesResponseType(typeof(BasketCart) , (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(BasketCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<BasketCart>> GetBasket(string userName)
         {
             var basket = await _repository.GetBasket(userName);
-            return Ok(basket?? new BasketCart(userName));
+            return Ok(basket ?? new BasketCart(userName));
         }
 
         [HttpPost]
         [ProducesResponseType(typeof(BasketCart), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<BasketCart>> UpdateBasket([FromBody]BasketCart basketCart)
+        public async Task<ActionResult<BasketCart>> UpdateBasket([FromBody] BasketCart basketCart)
         {
             return Ok(await _repository.UpdateBasket(basketCart));
-            
         }
 
-        [HttpDelete("{username}")]
+        [HttpDelete("{userName}")]
         [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteBasket(string userName)
         {
             return Ok(await _repository.DeleteBasket(userName));
-
         }
 
         [Route("[action]")]
@@ -60,7 +59,7 @@ namespace Basket.API.Controllers
             //send checkout event to rabbitmq
 
             var basket = await _repository.GetBasket(basketCheckout.UserName);
-            if ( basket==null )
+            if ( basket == null )
             {
                 return BadRequest();
             }
@@ -82,12 +81,10 @@ namespace Basket.API.Controllers
             }
             catch ( Exception )
             {
-
                 throw;
             }
 
             return Accepted();
-
         }
     }
 }

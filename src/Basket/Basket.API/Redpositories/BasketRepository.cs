@@ -17,7 +17,7 @@ namespace Basket.API.Redpositories
 
         public async Task<BasketCart> GetBasket(string userName)
         {
-            var basket =await _context.Redis.StringGetAsync(userName);
+            var basket = await _context.Redis.StringGetAsync(userName);
 
             if ( basket.IsNullOrEmpty )
             {
@@ -36,10 +36,10 @@ namespace Basket.API.Redpositories
 
             return await GetBasket(basket.UserName);
         }
+
         public async Task<bool> DeleteBasket(string userName)
         {
             return await _context.Redis.KeyDeleteAsync(userName);
-
         }
     }
 }

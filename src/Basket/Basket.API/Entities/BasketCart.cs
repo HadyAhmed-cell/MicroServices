@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Basket.API.Entities
 {
@@ -12,7 +9,6 @@ namespace Basket.API.Entities
 
         public BasketCart()
         {
-
         }
 
         public BasketCart(string userName)
@@ -20,18 +16,17 @@ namespace Basket.API.Entities
             UserName = userName;
         }
 
-        public decimal TotalPrice 
-        { 
-            get 
+        public decimal TotalPrice
+        {
+            get
             {
                 decimal totalPrice = 0;
                 foreach ( var item in Items )
                 {
-                    totalPrice = item.Price * item.Quantity;
+                    totalPrice += item.Price * item.Quantity;
                 }
                 return totalPrice;
-            } 
+            }
         }
-
     }
 }

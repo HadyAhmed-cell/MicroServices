@@ -1,11 +1,7 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace EventBusRabbitMQ
 {
@@ -23,6 +19,7 @@ namespace EventBusRabbitMQ
                 TryConnect();
             }
         }
+
         public bool IsConnected
         {
             get
@@ -35,7 +32,7 @@ namespace EventBusRabbitMQ
         {
             if ( !IsConnected )
             {
-                throw new InvalidOperationException("No rabbit connection"); 
+                throw new InvalidOperationException("No rabbit connection");
             }
 
             return _connection.CreateModel();
@@ -54,7 +51,6 @@ namespace EventBusRabbitMQ
             }
             catch ( Exception )
             {
-
                 throw;
             }
         }
@@ -69,7 +65,6 @@ namespace EventBusRabbitMQ
             {
                 Thread.Sleep(2000);
                 _connection = _connectionFactory.CreateConnection();
-                
             }
 
             if ( IsConnected )
